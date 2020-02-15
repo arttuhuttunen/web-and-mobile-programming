@@ -1,0 +1,41 @@
+a#memelink:hover {
+    color: royalblue;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid red; 
+}
+
+h1#header {
+    font-family: Arial;
+    margin-left: 35%;
+}
+
+body {
+    background-color: white; 
+    margin-top: 50px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 80px
+}
+
+.sublist {
+    color: darkcyan;
+    font-style: italic;
+    font-family: fantasy;
+}
+
+li#force {
+    color: deeppink;
+}
+
+input {
+    width: 400px;
+}
+
+html {
+    background-color: blue;
+}
