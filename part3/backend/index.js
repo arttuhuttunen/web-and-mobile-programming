@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 app.use(bodyParser.json())
+app.use(cors())
+
 
 let persons = [
     
@@ -62,10 +65,11 @@ app.post('/api/persons', (req, res) => {
     }
     //person.id = Math.floor(Math.random() * (100000 - 10000)) + 10000
     persons = persons.concat(person)
-    
+    res.json(person)
 })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+  console.log(`Server running on port ${PORT}`)
 })
+
