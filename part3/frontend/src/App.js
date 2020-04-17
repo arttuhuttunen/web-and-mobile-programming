@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
+const baseUrl = '/api/persons'
+
 const Person = ({person, removePerson}) => {
   return (
     <tr>
@@ -34,6 +36,7 @@ const NumberForm = ({addNumber, newName, handleNameChange, newNumber, handleNumb
   )
 }
 
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -45,7 +48,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3001/api/persons').then(response => { this.setState({persons: response.data})})
+    axios.get(baseUrl).then(response => { this.setState({persons: response.data})})
   }
 
   addNumber = (event) => {
@@ -57,7 +60,7 @@ class App extends React.Component {
       alert('This number already exists-')
       return
     }
-    axios.post('http://localhost:3001/api/persons', phonebookObj)
+    axios.post(baseUrl, phonebookObj)
     .then(response => {
       this.setState({persons: this.state.persons.concat(response.data)})
     })
@@ -77,7 +80,7 @@ class App extends React.Component {
     if (!window.confirm(`Are you sure you want to remove ${person.name}`)) {
       return
     }
-    axios.delete(`http://localhost:3001/api/persons/${id}`, person)
+    axios.delete(baseUrl + '/' + id, person)
     .then(response => 
       this.setState({persons: this.state.persons.filter(person => person.id !== id)})
     )
